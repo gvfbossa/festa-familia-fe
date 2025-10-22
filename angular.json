@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/festa-familia-fe",
+            "outputPath": "docs/festa-familia-fe",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
