@@ -1,0 +1,68 @@
+<div class="cracha-page">
+  <!-- CRAchá container -->
+  <div class="cracha-container">
+    <div class="cracha" [ngClass]="participanteSelecionado?.bandeira?.toLowerCase()">
+      <div class="cracha__header">
+        <span class="cracha__familia">{{ pegaSobrenomeParticipante(participanteSelecionado?.nomeCompleto) }}</span>
+      </div>
+      <div class="cracha__body">
+        <div class="cracha__info">
+          <p><span class="label">Nome:</span> {{ participanteSelecionado?.nomeCompleto }}</p>
+          <p><span class="label">Nascimento:</span> {{ participanteSelecionado?.dataNascimento | date:'dd-MM-yyyy' }}</p>
+          <p><span class="label">De:</span> {{ participanteSelecionado?.localNascimento }}</p>
+          <hr>
+          <p><span class="label">Mãe:</span> {{ participanteSelecionado?.nomeMae }}</p>
+          <p><span class="label">Pai:</span> {{ participanteSelecionado?.nomePai }}</p>
+          <ng-container *ngIf="participanteSelecionado && isAdult(participanteSelecionado) && participanteSelecionado.nomeNonna">
+            <p><span class="label">Nonno:</span> {{ participanteSelecionado.nomeNonno }}</p>
+            <p><span class="label">Nonna:</span> {{ participanteSelecionado.nomeNonna }}</p>
+          </ng-container>
+        </div>
+      </div>
+      <div class="cracha__footer">
+        <span class="cracha__footer_info">10 e 11 de Janeiro de 2026</span>
+      </div>
+    </div>
+
+    <!-- LISTA DE PARTICIPANTES ESTILIZADA -->
+    <section class="participants">
+      <div class="participants__container">
+        <!-- Adultos -->
+        <h2 class="participants__title participants__title--adultos">Adultos</h2>
+        <input
+          type="text"
+          [(ngModel)]="searchAdult"
+          placeholder="Buscar adulto..."
+          class="participants__search"
+        />
+        <div class="participants__table-wrapper">
+          <ul class="participants__list">
+            <li *ngFor="let a of filteredAdults"
+                (click)="selecionarParticipante(a)"
+                [class.selected]="participanteSelecionado?.id === a.id">
+              <span class="participants__name">{{ a.nomeCompleto }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Crianças -->
+        <h2 class="participants__title participants__title--criancas">Crianças</h2>
+        <input
+          type="text"
+          [(ngModel)]="searchKid"
+          placeholder="Buscar criança..."
+          class="participants__search"
+        />
+        <div class="participants__table-wrapper">
+          <ul class="participants__list">
+            <li *ngFor="let k of filteredKids"
+                (click)="selecionarParticipante(k)"
+                [class.selected]="participanteSelecionado?.id === k.id">
+              <span class="participants__name">{{ k.nomeCompleto }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

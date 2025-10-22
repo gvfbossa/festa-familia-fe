@@ -1,0 +1,162 @@
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  color: #012448;
+  box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-bottom: 5px solid red;
+}
+
+.header__container {
+  width: 98%;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__left,
+.header__center,
+.header__right {
+  display: flex;
+  align-items: center;
+}
+
+/* TRÊS ÁREAS */
+.header__left {
+  justify-content: flex-start;
+}
+
+.header__center {
+  flex: 1;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  margin-left: 8rem;
+}
+
+.header__right {
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-right: 1rem;
+}
+
+/* TÍTULO */
+.header__title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #008000;
+  margin: 0;
+  text-align: center;
+}
+
+.header__title-year {
+  font-size: 2.2rem;
+}
+
+/* MENU */
+.header__nav {
+  display: flex;
+  gap: 5rem;
+}
+
+.header__link {
+  color: #cc0000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.header__link:hover {
+  color: #008000;
+}
+
+/* BOTÃO HAMBURGER */
+.header__menu-button {
+  color: #cc0000;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0;
+  min-width: 0;
+  display: none; /* escondido no desktop */
+}
+
+.header__menu-button mat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+}
+
+.header__menu-button:hover {
+  cursor: pointer;
+}
+
+/* MENU DROPDOWN (para mobile) */
+.header__mobile-nav {
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-top: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.header__mobile-nav.active {
+  display: flex;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header__mobile-nav .header__link {
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .header__container {
+    padding: 0.8rem 1rem;
+  }
+
+  .header__title {
+    font-size: 1.3rem;
+  }
+
+  .header__title-year {
+    font-size: 1.8rem;
+  }
+
+  .header__center {
+    display: none;
+  }
+
+  .header__menu-button {
+    display: block; /* aparece só no mobile */
+  }
+
+  .header__left {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .header__right {
+    position: absolute;
+    right: 0rem;
+  }
+}

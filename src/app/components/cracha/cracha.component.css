@@ -1,0 +1,217 @@
+/* CENTRALIZAÇÃO E CONTAINER */
+.cracha-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza horizontalmente */
+  gap: 2rem;           /* mais espaço entre crachá e selector */
+  margin-top: 3rem;    /* distância do topo maior */
+}
+
+/* CRAchá */
+.cracha {
+  width: 600px;          /* maior */
+  padding: 1.8rem;       /* mais espaçamento interno */
+  border-radius: 0.6rem; /* arredondamento suave */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  font-family: 'Arial', sans-serif;
+  color: #000;           /* fonte preta */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* HEADER - nome da família */
+.cracha__header {
+  text-align: center;
+  font-size: 2rem;      /* maior que antes */
+  font-weight: bold;
+  margin-bottom: 1.2rem;  /* mais espaçamento inferior */
+  padding: 0.8rem;        /* padding vertical maior */
+  border-radius: 0.4rem;
+  color: #000;            /* texto preto */
+}
+
+/* fundo degradê conforme bandeira */
+.cracha.italia .cracha__header {
+  background: linear-gradient(90deg, green, white, red);
+}
+
+.cracha.polonia .cracha__header {
+  background: linear-gradient(90deg, white, red);
+}
+
+/* BODY */
+.cracha__body {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.05rem; /* fonte maior */
+  line-height: 0.7;    /* leitura mais confortável */
+}
+
+/* SELEÇÃO DE BANDEIRA - fora do crachá */
+.cracha__selector {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.cracha__selector button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  background: #f5f5f5;
+  transition: 0.2s;
+}
+
+.cracha__selector button:disabled {
+  background: #ddd;
+  cursor: default;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+/* labels gerais */
+.cracha__body .label {
+  font-weight: bold;
+}
+
+/* cores por bandeira */
+.cracha.italia .cracha__body .label {
+  color: green;
+}
+
+.cracha.polonia .cracha__body .label {
+  color: red;
+}
+
+/* valores em preto */
+.cracha__body p {
+  color: #000; /* garante que os valores fiquem pretos */
+}
+
+hr {
+    color: rgb(240, 239, 239);
+}
+
+.cracha-page {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Base do container da lista */
+.participants__container {
+  max-width: 600px;   /* largura total da lista */
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza inputs e listas */
+  gap: 1rem;
+}
+
+.participants__title {
+  color: green;
+}
+
+/* Inputs de busca */
+.participants__search {
+  width: 100%;       /* ocupa toda a largura do container */
+  max-width: 100%;   /* garante que não passe do container */
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #006400;
+  border-radius: 0.3rem;
+  font-size: 0.95rem;
+  box-sizing: border-box; /* evita overflow */
+}
+
+/* Wrapper rolável */
+.participants__table-wrapper {
+  width: 100%;        /* ocupa toda a largura do container */
+  max-width: 100%;    /* garante alinhamento com input */
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+/* Lista */
+.participants__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.participants__list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.participants__list li:hover {
+  background-color: #f0f0f0;
+}
+
+.participants__list li.selected {
+  background-color: #d1e7ff;
+  font-weight: bold;
+}
+
+.cracha__footer {
+  text-align: right;
+  font-size: 1rem;
+  color: gray;
+  font-weight: bold;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+.cracha-page {
+  margin-top: -3rem;
+}
+
+  .cracha {
+    width: 90%;
+  }
+
+  .participants__container {
+    width: 90%;
+  }
+
+   .cracha__header {
+    /* remova max-height */
+    padding: 0.4rem 0; /* menos padding vertical que no desktop */
+    font-size: 1rem;
+    text-align: center; /* garante centralização */
+  }
+
+  .cracha__familia {
+    font-size: 1rem;
+    display: block;
+    text-align: center; /* garante centralização do sobrenome */
+  }
+
+  .cracha__info span,
+  .cracha__info p {
+    font-size: 0.8rem;
+    line-height: 0.5;
+  }
+
+  .cracha__footer {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+}

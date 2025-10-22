@@ -1,0 +1,5 @@
+.main {
+  flex: 1; /* Faz o main ocupar o espaço restante */
+  padding: 2rem;
+  background-color: #f1f8f6;
+}

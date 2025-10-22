@@ -1,0 +1,91 @@
+/* HOME */
+.home {
+  padding: 5rem 2rem;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+.home__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* TÍTULO */
+.home__welcome {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: #0f2e42;
+}
+
+/* NOMES DAS FAMÍLIAS COM GRADIENTE NAS BORDAS */
+
+/* Itália 🇮🇹: Verde, Branco, Vermelho */
+.home__family--bossa {
+  background-image: linear-gradient(to right, green 33%, white 33%, white 66%, red 66%);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
+  border-radius: 0.2rem;
+}
+
+/* Polônia 🇵🇱: Branco, Vermelho */
+.home__family--mileski,
+.home__family--ziemniczak {
+  background-image: linear-gradient(to right, white 50%, red 50%);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
+  border-radius: 0.2rem;
+}
+
+/* Estilo comum */
+.home__family {
+  display: inline-block;
+  padding-bottom: 0.2rem;
+  margin: 0 0.3rem;
+  border-bottom: 5px solid transparent;
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  border-image-slice: 1;
+  border-image-source: inherit;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+/* DESCRIÇÃO */
+.home__description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 3rem 1rem;
+  }
+
+  .home__welcome {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .home__family {
+    font-size: 1.1em;
+    padding-bottom: 0.15rem;
+  }
+
+  .home__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 0.5rem;
+  }
+
+  .home__family--bossa,
+  .home__family--mileski,
+  .home__family--ziemniczak {
+    margin: 0.2rem;
+  }
+}

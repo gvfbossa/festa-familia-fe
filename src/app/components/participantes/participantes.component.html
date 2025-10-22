@@ -1,0 +1,147 @@
+<section class="participants">
+  <div class="participants__container">
+
+    <!-- ===== ADULTOS ===== -->
+    <h2 class="participants__title participants__title--adultos">Adultos</h2>
+    <input
+      type="text"
+      [(ngModel)]="searchAdult"
+      placeholder="Buscar adulto..."
+      class="participants__search"
+    />
+
+    <!-- TABELA DESKTOP -->
+    <div class="participants__table-wrapper">
+      <table class="participants__table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Pai</th>
+            <th>Mãe</th>
+            <th>Nonno</th>
+            <th>Nonna</th>
+            <th>Local de Nascimento</th>
+            <th>Data de Nascimento</th>
+            <th>Bandeira</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of filteredAdults">
+            <td><input [(ngModel)]="p.nomeCompleto" placeholder="Nome" /></td>
+            <td><input [(ngModel)]="p.nomePai" placeholder="Pai" /></td>
+            <td><input [(ngModel)]="p.nomeMae" placeholder="Mãe" /></td>
+            <td><input [(ngModel)]="p.nomeNonno" placeholder="Nonno" /></td>
+            <td><input [(ngModel)]="p.nomeNonna" placeholder="Nonna" /></td>
+            <td><input [(ngModel)]="p.localNascimento" placeholder="Local de Nascimento" /></td>
+            <td><input type="date" [(ngModel)]="p.dataNascimento" placeholder="Data de Nascimento" /></td>
+            <td class="participants__bandeira">
+              <label><input type="radio" name="bandeira-{{ p.id }}" [(ngModel)]="p.bandeira" value="ITALIA" /> 🇮🇹</label>
+              <label><input type="radio" name="bandeira-{{ p.id }}" [(ngModel)]="p.bandeira" value="POLONIA" /> 🇵🇱</label>
+            </td>
+            <td class="participants__actions">
+              <button class="participants__save" (click)="editAdult(p)">💾 Salvar</button>
+              <button class="participants__remove" (click)="removeAdult(p.id)">❌</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="participants__add" (click)="addAdult()">➕ Adicionar Adulto</button>
+
+    <!-- ===== ADULTOS MOBILE (Accordion) ===== -->
+    <div class="participants__mobile-wrapper">
+      <div class="participants__mobile" *ngFor="let p of filteredAdults">
+        <div class="participant-row" (click)="p.expanded = !p.expanded">
+          <span class="participant-name">{{ p.nomeCompleto || 'Nome não preenchido' }}</span>
+          <button class="participants__remove" (click)="removeAdult(p.id); $event.stopPropagation()">❌</button>
+        </div>
+
+        <div class="participant-body" *ngIf="p.expanded">
+          <div class="participant-field"><label>Nome</label><input [(ngModel)]="p.nomeCompleto" /></div>
+          <div class="participant-field"><label>Pai</label><input [(ngModel)]="p.nomePai" /></div>
+          <div class="participant-field"><label>Mãe</label><input [(ngModel)]="p.nomeMae" /></div>
+          <div class="participant-field"><label>Nonno</label><input [(ngModel)]="p.nomeNonno" /></div>
+          <div class="participant-field"><label>Nonna</label><input [(ngModel)]="p.nomeNonna" /></div>
+          <div class="participant-field"><label>Local de Nascimento</label><input [(ngModel)]="p.localNascimento" /></div>
+          <div class="participant-field"><label>Data de Nascimento</label><input type="date" [(ngModel)]="p.dataNascimento" /></div>
+          <div class="participant-field participant-bandeira">
+            <label>Bandeira</label>
+            <label><input type="radio" name="bandeira-{{p.id}}" [(ngModel)]="p.bandeira" value="ITALIA" /> 🇮🇹</label>
+            <label><input type="radio" name="bandeira-{{p.id}}" [(ngModel)]="p.bandeira" value="POLONIA" /> 🇵🇱</label>
+          </div>
+          <button class="participants__save" (click)="editAdult(p); p.expanded=false">💾 Salvar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CRIANÇAS ===== -->
+    <h2 class="participants__title participants__title--criancas">Crianças</h2>
+    <input
+      type="text"
+      [(ngModel)]="searchKid"
+      placeholder="Buscar criança..."
+      class="participants__search"
+    />
+
+    <!-- TABELA DESKTOP -->
+    <div class="participants__table-wrapper">
+      <table class="participants__table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Pai</th>
+            <th>Mãe</th>
+            <th>Local de Nascimento</th>
+            <th>Data de Nascimento</th>
+            <th>Bandeira</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of filteredKids">
+            <td><input [(ngModel)]="c.nomeCompleto" placeholder="Nome" /></td>
+            <td><input [(ngModel)]="c.nomePai" placeholder="Pai" /></td>
+            <td><input [(ngModel)]="c.nomeMae" placeholder="Mãe" /></td>
+            <td><input [(ngModel)]="c.localNascimento" placeholder="Local de Nascimento" /></td>
+            <td><input type="date" [(ngModel)]="c.dataNascimento" placeholder="Data de Nascimento" /></td>
+            <td class="participants__bandeira">
+              <label><input type="radio" name="bandeira-kid-{{ c.id }}" [(ngModel)]="c.bandeira" value="ITALIA" /> 🇮🇹</label>
+              <label><input type="radio" name="bandeira-kid-{{ c.id }}" [(ngModel)]="c.bandeira" value="POLONIA" /> 🇵🇱</label>
+            </td>
+            <td class="participants__actions">
+              <button class="participants__save" (click)="editKid(c)">💾 Salvar</button>
+              <button class="participants__remove" (click)="removeKid(c.id)">❌</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="participants__add" (click)="addKid()">➕ Adicionar Criança</button>
+
+    <!-- ===== CRIANÇAS MOBILE ===== -->
+     <div class="participants__mobile-wrapper">
+      <div class="participants__mobile" *ngFor="let p of filteredKids">
+        <div class="participant-row" (click)="p.expanded = !p.expanded">
+          <span class="participant-name">{{ p.nomeCompleto || 'Nome não preenchido' }}</span>
+          <button class="participants__remove" (click)="removeKid(p.id); $event.stopPropagation()">❌</button>
+        </div>
+
+        <div class="participant-body" *ngIf="p.expanded">
+          <div class="participant-field"><label>Nome</label><input [(ngModel)]="p.nomeCompleto" /></div>
+          <div class="participant-field"><label>Pai</label><input [(ngModel)]="p.nomePai" /></div>
+          <div class="participant-field"><label>Mãe</label><input [(ngModel)]="p.nomeMae" /></div>
+          <div class="participant-field"><label>Local de Nascimento</label><input [(ngModel)]="p.localNascimento" /></div>
+          <div class="participant-field"><label>Data de Nascimento</label><input type="date" [(ngModel)]="p.dataNascimento" /></div>
+          <div class="participant-field participant-bandeira">
+            <label>Bandeira</label>
+            <label><input type="radio" name="bandeira-{{p.id}}" [(ngModel)]="p.bandeira" value="ITALIA" /> 🇮🇹</label>
+            <label><input type="radio" name="bandeira-{{p.id}}" [(ngModel)]="p.bandeira" value="POLONIA" /> 🇵🇱</label>
+          </div>
+          <button class="participants__save" (click)="editKid(p); p.expanded=false">💾 Salvar</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>

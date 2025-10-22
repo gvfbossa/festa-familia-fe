@@ -1,0 +1,176 @@
+.mural-page {
+  padding: 2rem;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* MINI FORM DE UPLOAD */
+.mural-upload {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 3rem;
+  border: 2px solid #006400;
+  border-radius: 0.5rem;
+  padding: 1rem 1.2rem;
+  background-color: #f9fff9;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mural-upload h3 {
+  text-align: center;
+  color: #006400;
+  margin: 0;
+}
+
+/* Form Inputs empilhados */
+.mural-upload__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.mural-upload__form input[type="file"] {
+  padding: 0.3rem;
+  border: 1px solid #006400;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.mural-upload__form input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #006400;
+  border-radius: 0.3rem;
+}
+
+.mural-upload__form button {
+  padding: 0.6rem;
+  border: none;
+  background-color: #008000;
+  color: #fff;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.mural-upload__form button:hover {
+  background-color: #006400;
+}
+
+/* GRID DE FOTOS */
+.mural-grid {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.mural-grid h3 {
+  grid-column: 1/-1;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #006400;
+}
+
+.mural-item {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 25rem;
+  height: auto;
+}
+
+/* FOTO */
+.mural-item__image {
+  width: 25rem;
+  height: 25rem;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+}
+
+.mural-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* quadrada, sem deformar */
+  display: block;
+  border-bottom: 3px solid #006400;
+}
+
+/* DESCRIÇÃO */
+.mural-item__descricao {
+  margin: 0;
+  padding: 0.8rem;
+  text-align: center;
+  background: linear-gradient(90deg, #008000 0%, #ff0000 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Merriweather", serif;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .mural-grid {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mural-item {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 10rem;
+    height: auto;
+  }
+
+  /* FOTO */
+  .mural-item__image {
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f3f3;
+  }
+
+  .mural-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* quadrada, sem deformar */
+    display: block;
+    border-bottom: 3px solid #006400;
+  }
+
+  /* DESCRIÇÃO */
+  .mural-item__descricao {
+    margin: 0;
+    padding: 0.4rem;
+    text-align: center;
+    background: linear-gradient(90deg, #008000 0%, #ff0000 100%);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Merriweather", serif;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}

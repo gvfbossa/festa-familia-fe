@@ -1,0 +1,23 @@
+<div class="mural-page">
+  <!-- MINI FORM DE UPLOAD -->
+  <div class="mural-upload">
+    <h3>Inserir Foto</h3>
+    <div class="mural-upload__form">
+      <input type="file" (change)="onFileSelected($event)" />
+      <input type="text" [(ngModel)]="descricao" placeholder="Descrição da foto" />
+      <button (click)="uploadFoto()">Enviar</button>
+    </div>
+  </div>
+
+  <!-- GRID DE FOTOS -->
+
+  <div class="mural-grid">
+    <h3>Mural de Fotos</h3>
+    <div class="mural-item" *ngFor="let foto of fotos">
+      <div class="mural-item__image">
+        <img [src]="foto.url" alt="{{ foto.descricao }}" />
+      </div>
+      <p class="mural-item__descricao">{{ foto.descricao }}</p>
+    </div>
+  </div>
+</div>

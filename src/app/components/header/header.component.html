@@ -1,0 +1,36 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__left">
+      <h1 class="header__title">
+        Encontro das Famílias <br>
+        <span class="header__title-year">2026</span>
+      </h1>
+    </div>
+
+    <div class="header__center">
+      <nav class="header__nav">
+        <a class="header__link" routerLink="/home">Início</a>
+        <a class="header__link" routerLink="/informacoes">Informações</a>
+        <a class="header__link" routerLink="/participantes">Lista de Participantes</a>
+        <a class="header__link" routerLink="/cracha">Crachá</a>
+        <a class="header__link" routerLink="/mural">Mural</a>
+        <a class="header__link" routerLink="/contato">Contato</a>
+      </nav>
+    </div>
+
+    <div class="header__right">
+      <button mat-icon-button aria-label="Menu" class="header__menu-button" (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <nav class="header__mobile-nav" [class.active]="menuOpen">
+    <a class="header__link" routerLink="/home" (click)="closeMenu()">Início</a>
+    <a class="header__link" routerLink="/informacoes" (click)="closeMenu()">Informações</a>
+    <a class="header__link" routerLink="/participantes" (click)="closeMenu()">Lista de Participantes</a>
+    <a class="header__link" routerLink="/cracha" (click)="closeMenu()">Crachá</a>
+    <a class="header__link" routerLink="/mural" (click)="closeMenu()">Mural</a>
+    <a class="header__link" routerLink="/contato" (click)="closeMenu()">Contato</a>
+  </nav>
+</header>
