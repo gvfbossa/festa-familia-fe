@@ -171,10 +171,21 @@ hr {
 }
 
 .cracha__footer {
-  text-align: right;
+  text-align: center;
   font-size: 1rem;
+}
+
+.cracha__footer_info {
   color: gray;
   font-weight: bold;
+}
+
+.cracha__footer-it {
+  color: green;
+}
+
+.cracha__footer-pol {
+  color: red;
 }
 
 /* Responsivo */
