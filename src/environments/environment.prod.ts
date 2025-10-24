@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://meu-backend.no-hetzner.com/'
+  apiBaseUrl: 'https://api.festa-familia.bossawebsolutions.com.br/'
 };
