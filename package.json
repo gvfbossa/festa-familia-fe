@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-prod": "rm -rf docs/ && ng build --configuration production --base-href /festa-familia-fe/ && cp src/assets/resources/404.html docs/ && cp src/favicon.ico docs/"
+    "build-prod": "rm -rf docs/ && ng build --configuration production --base-href /festa-familia-fe/ && cp src/assets/resources/404.html docs/ && cp src/favicon.ico docs/ && git add . && git add docs/"
   },
   "private": true,
   "dependencies": {

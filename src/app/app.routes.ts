@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { DateTimeComponent } from './components/date-time/date-time.component';
 import { MainComponent } from './components/main/main.component';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { CrachaComponent } from './components/cracha/cracha.component';
 import { ParticipantesComponent } from './components/participantes/participantes.component';
 import { ContatoComponent } from './components/contato/contato.component';
