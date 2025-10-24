@@ -5,6 +5,11 @@
   font-family: "Arial", sans-serif;
 }
 
+.participants__instructions {
+  font-size: 1rem;
+  margin-bottom: 4rem;
+}
+
 .participants__container {
   max-width: 90%;
   margin: 0 auto;
@@ -149,6 +154,15 @@
   .participants__container {
     max-width: 100%;
     margin-top: -5rem;
+  }
+
+  h3 {
+    margin-top: -2rem;
+  }
+
+  .participants__instructions {
+    font-size: 0.8rem;
+    margin-bottom: 8rem;
   }
 
   /* Oculta tabela desktop */
