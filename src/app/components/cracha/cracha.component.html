@@ -1,7 +1,7 @@
 <div class="cracha-page">
   <!-- CRAchá container -->
   <div class="cracha-container">
-    <div class="cracha" [ngClass]="participanteSelecionado?.bandeira?.toLowerCase()">
+    <div class="cracha" id="cracha-print" [ngClass]="participanteSelecionado?.bandeira?.toLowerCase()">
       <div class="cracha__header">
         <span class="cracha__familia">{{ pegaSobrenomeParticipante(participanteSelecionado?.nomeCompleto) }}</span>
       </div>
@@ -67,3 +67,6 @@
     </section>
   </div>
 </div>
+<button class="cracha__download-btn" (click)="baixarTodosCrachas()">
+    Baixar todos os crachás
+</button>

@@ -1,20 +1,18 @@
-/* CENTRALIZAÇÃO E CONTAINER */
 .cracha-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centraliza horizontalmente */
-  gap: 2rem;           /* mais espaço entre crachá e selector */
-  margin-top: 3rem;    /* distância do topo maior */
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
-/* CRAchá */
 .cracha {
-  width: 600px;          /* maior */
-  padding: 1.8rem;       /* mais espaçamento interno */
-  border-radius: 0.6rem; /* arredondamento suave */
+  width: 600px;
+  padding: 1.8rem;
+  border-radius: 0.6rem;
   box-shadow: 0 8px 25px rgba(0,0,0,0.12);
   font-family: 'Arial', sans-serif;
-  color: #000;           /* fonte preta */
+  color: #000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,18 +20,16 @@
   transition: all 0.3s ease;
 }
 
-/* HEADER - nome da família */
 .cracha__header {
   text-align: center;
-  font-size: 2rem;      /* maior que antes */
+  font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 1.2rem;  /* mais espaçamento inferior */
-  padding: 0.8rem;        /* padding vertical maior */
+  margin-bottom: 1.2rem;
+  padding: 0.8rem;
   border-radius: 0.4rem;
-  color: #000;            /* texto preto */
+  color: #000;
 }
 
-/* fundo degradê conforme bandeira */
 .cracha.italia .cracha__header {
   background: linear-gradient(90deg, green, white, red);
 }
@@ -42,15 +38,13 @@
   background: linear-gradient(90deg, white, red);
 }
 
-/* BODY */
 .cracha__body {
   display: flex;
   flex-direction: column;
-  font-size: 1.05rem; /* fonte maior */
-  line-height: 0.7;    /* leitura mais confortável */
+  font-size: 1.05rem;
+  line-height: 0.7;
 }
 
-/* SELEÇÃO DE BANDEIRA - fora do crachá */
 .cracha__selector {
   display: flex;
   gap: 1.2rem;
@@ -78,12 +72,10 @@ p {
     font-size: 1.5rem;
 }
 
-/* labels gerais */
 .cracha__body .label {
   font-weight: bold;
 }
 
-/* cores por bandeira */
 .cracha.italia .cracha__body .label {
   color: green;
 }
@@ -92,9 +84,8 @@ p {
   color: red;
 }
 
-/* valores em preto */
 .cracha__body p {
-  color: #000; /* garante que os valores fiquem pretos */
+  color: #000;
 }
 
 hr {
@@ -108,14 +99,13 @@ hr {
   font-family: 'Arial', sans-serif;
 }
 
-/* Base do container da lista */
 .participants__container {
-  max-width: 600px;   /* largura total da lista */
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center; /* centraliza inputs e listas */
+  align-items: center;
   gap: 1rem;
 }
 
@@ -123,21 +113,19 @@ hr {
   color: green;
 }
 
-/* Inputs de busca */
 .participants__search {
-  width: 100%;       /* ocupa toda a largura do container */
-  max-width: 100%;   /* garante que não passe do container */
+  width: 100%;
+  max-width: 100%;
   padding: 0.4rem 0.6rem;
   border: 1px solid #006400;
   border-radius: 0.3rem;
   font-size: 0.95rem;
-  box-sizing: border-box; /* evita overflow */
+  box-sizing: border-box;
 }
 
-/* Wrapper rolável */
 .participants__table-wrapper {
-  width: 100%;        /* ocupa toda a largura do container */
-  max-width: 100%;    /* garante alinhamento com input */
+  width: 100%;
+  max-width: 100%;
   max-height: 200px;
   overflow-y: auto;
   border: 1px solid #ddd;
@@ -188,7 +176,21 @@ hr {
   color: red;
 }
 
-/* Responsivo */
+.cracha__download-btn {
+  display: flex;
+  margin: 0px auto;
+  margin-top: 5rem  ;
+  background-color: #006400;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.print-mode {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
 @media (max-width: 768px) {
 .cracha-page {
   margin-top: -3rem;
@@ -203,16 +205,15 @@ hr {
   }
 
    .cracha__header {
-    /* remova max-height */
-    padding: 0.4rem 0; /* menos padding vertical que no desktop */
+    padding: 0.4rem 0;
     font-size: 1rem;
-    text-align: center; /* garante centralização */
+    text-align: center;
   }
 
   .cracha__familia {
     font-size: 1rem;
     display: block;
-    text-align: center; /* garante centralização do sobrenome */
+    text-align: center;
   }
 
   .cracha__info span,

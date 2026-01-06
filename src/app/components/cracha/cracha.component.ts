@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Adult } from '../../models/adult.model';
 import { Kid } from '../../models/kid.model';
 import { ParticipantsService } from '../../services/participantes.service';
-
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-cracha',
@@ -46,8 +46,8 @@ export class CrachaComponent implements OnInit {
   loadParticipants(): void {
     this.participantsService.getAdults().subscribe((data: Adult[]) => {
       this.adults = data
-      .map(a => ({ ...a, tipo: 'ADULTO' }))
-      .sort((a, b) => a.nomeCompleto.localeCompare(b.nomeCompleto));
+        .map(a => ({ ...a, tipo: 'ADULTO' }))
+        .sort((a, b) => a.nomeCompleto.localeCompare(b.nomeCompleto));
 
       if (!this.participanteSelecionado && this.adults.length > 0) {
         this.selecionarParticipante(this.adultoGenerico);
@@ -63,7 +63,7 @@ export class CrachaComponent implements OnInit {
   pegaSobrenomeParticipante(nomeCompleto: string | undefined) {
     if (nomeCompleto) {
       let sobrenome = nomeCompleto.trim().split(" ")
-      return sobrenome[sobrenome.length-1].toUpperCase()
+      return sobrenome[sobrenome.length - 1].toUpperCase()
     }
     return ""
   }
@@ -88,5 +88,42 @@ export class CrachaComponent implements OnInit {
     return this.kids.filter(a =>
       a.nomeCompleto.toLowerCase().includes(this.searchKid.toLowerCase())
     );
+  }
+
+  async baixarTodosCrachas() {
+    const participantes = [
+      ...this.adults,
+      ...this.kids
+    ];
+
+    const element = document.getElementById('cracha-print');
+    if (!element) return;
+
+    element.classList.add('print-mode');
+
+    for (const participante of participantes) {
+      this.selecionarParticipante(participante);
+
+      // espera o Angular renderizar
+      await new Promise(requestAnimationFrame);
+
+      const canvas = await html2canvas(element, {
+        scale: 3, // alta qualidade pra impressão
+        backgroundColor: '#ffffff',
+        useCORS: true
+      });
+
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+
+      const nomeArquivo = participante.nomeCompleto
+        .replace(/\s+/g, '_')
+        .toLowerCase();
+
+      link.download = `cracha_${nomeArquivo}.png`;
+      link.click();
+    }
+
+    element.classList.remove('print-mode');
   }
 }
