@@ -62,7 +62,7 @@ export class CrachaComponent implements OnInit {
 
   pegaSobrenomeParticipante(nomeCompleto: string | undefined) {
     if (nomeCompleto) {
-      let sobrenome = nomeCompleto.split(" ")
+      let sobrenome = nomeCompleto.trim().split(" ")
       return sobrenome[sobrenome.length-1].toUpperCase()
     }
     return ""
